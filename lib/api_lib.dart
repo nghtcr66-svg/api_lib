@@ -3,7 +3,7 @@ import 'package:api_lib/models/publish_game_request_model.dart';
 import 'package:api_lib/models/register_request_model.dart';
 import 'package:dio/dio.dart';
 
-void request_func() async {
+Future<dynamic> request_func() async {
   final dio = Dio();
   // Эта одна строчка напечатает в консоль весь запрос, заголовки и ответ сервера!
   dio.interceptors.add(LogInterceptor(requestBody: true, responseBody: true));
@@ -14,13 +14,13 @@ void request_func() async {
 
     final response = await api.getMyStatistic('Bearer $token');
     print('Успех: $response');
-    return response
+    return response;
   } catch (e) {
     print('Ошибка: $e');
   }
 }
 
-void post_func() async {
+Future<dynamic> post_func() async {
   final dio = Dio();
   // Эта одна строчка напечатает в консоль весь запрос, заголовки и ответ сервера!
   dio.interceptors.add(LogInterceptor(requestBody: true, responseBody: true));
@@ -48,13 +48,13 @@ void post_func() async {
       ),
     );
     print('Успех: $response');
-    return response
+    return response;
   } catch (e) {
     print('Ошибка: $e');
   }
 }
 
-void register_func() async {
+Future<dynamic> register_func() async {
   final dio = Dio();
   // Эта одна строчка напечатает в консоль весь запрос, заголовки и ответ сервера!
   dio.interceptors.add(LogInterceptor(requestBody: true, responseBody: true));
@@ -74,13 +74,13 @@ void register_func() async {
       ),
     );
     print('Успех: $response');
-    return response
+    return response;
   } catch (e) {
     print('Ошибка: $e');
   }
 }
 
-void getInfo_func() async {
+Future<dynamic> getInfo_func() async {
   final dio = Dio();
   // Эта одна строчка напечатает в консоль весь запрос, заголовки и ответ сервера!
   dio.interceptors.add(LogInterceptor(requestBody: true, responseBody: true));
@@ -91,7 +91,7 @@ void getInfo_func() async {
 
     final response = await api.getUserInfo('Bearer $token', 1);
     print('Успех: $response');
-    return response
+    return response;
   } catch (e) {
     print('Ошибка: $e');
   }
@@ -100,7 +100,7 @@ void getInfo_func() async {
 
 
 
-void heartbeat_func() async {
+Future<dynamic> heartbeat_func() async {
   final dio = Dio();
   // Эта одна строчка напечатает в консоль весь запрос, заголовки и ответ сервера!
   dio.interceptors.add(LogInterceptor(requestBody: true, responseBody: true));
@@ -111,13 +111,13 @@ void heartbeat_func() async {
 
     final response = await api.heartbeatGame('Bearer $token', 1);
     print('Успех: $response');
-    return response
+    return response;
   } catch (e) {
     print('Ошибка: $e');
   }
 }
 
-void publishgame_func() async {
+Future<dynamic> publishgame_func() async {
   final dio = Dio();
   // Эта одна строчка напечатает в консоль весь запрос, заголовки и ответ сервера!
   dio.interceptors.add(LogInterceptor(requestBody: true, responseBody: true));
@@ -128,7 +128,7 @@ void publishgame_func() async {
 
     final response = await api.submitGame('Bearer $token', 1);
     print('Успех: $response');
-    return response
+    return response;
   } catch (e) {
     print('Ошибка: $e');
   }
