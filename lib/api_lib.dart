@@ -10,7 +10,7 @@ void request_func() async {
 
   try {
     final api = ApiClient(dio);
-    const token = '4OWiuS9F-626KO4wXDH2QBn6VWU7bhgRvN49QLJn4KQ';
+    const token = 'y79RLpsBDEgwgqUJtawimBWloyhZoOqt6rQF1ZRW8fE';
 
     final response = await api.getMyStatistic('Bearer $token');
     print('Успех: $response');
@@ -26,7 +26,7 @@ void post_func() async {
 
   try {
     final api = ApiClient(dio);
-    const token = '4OWiuS9F-626KO4wXDH2QBn6VWU7bhgRvN49QLJn4KQ';
+    const token = 'y79RLpsBDEgwgqUJtawimBWloyhZoOqt6rQF1ZRW8fE';
 
     final response = await api.publishGame(
       'Bearer $token',
@@ -59,7 +59,7 @@ void register_func() async {
 
   try {
     final api = ApiClient(dio);
-    const token = '4OWiuS9F-626KO4wXDH2QBn6VWU7bhgRvN49QLJn4KQ';
+    const token = 'y79RLpsBDEgwgqUJtawimBWloyhZoOqt6rQF1ZRW8fE';
 
     final response = await api.registerME(
       'Bearer $token',
