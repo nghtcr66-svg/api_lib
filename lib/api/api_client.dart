@@ -2,6 +2,7 @@ import 'package:api_lib/models/game_details_model/game_details_model.dart';
 import 'package:api_lib/models/game_puzzle_model/game_puzzle_model.dart';
 import 'package:api_lib/models/heart_beat_game_model/heart_beat_game_model.dart';
 import 'package:api_lib/models/info_model.dart';
+import 'package:api_lib/models/my_statistic_model/my_statistic_model.dart';
 import 'package:api_lib/models/publish_game_request_model.dart';
 import 'package:api_lib/models/publish_game_response_model/publish_game_response_model.dart';
 import 'package:api_lib/models/register_request_model.dart';
@@ -23,11 +24,11 @@ abstract class ApiClient {
   //-----------------------------GET----------------------------
   @GET('/v1/users/me')
   //GetMeModel уже сгенерирован расширением и мы прямо в сам запрос передем токен
-  Future<GetMeModel> getMe(@Header('Authorization') String bearerToken);
+  Future<List<GetMeModel>> getMe(@Header('Authorization') String bearerToken);
 
   @GET('/v1/users/me/statistics')
   //мы прямо в сам запрос передем токен
-  Future<GetMeModel> getMyStatistic(
+  Future<MyStatisticModel> getMyStatistic(
     @Header('Authorization') String bearerToken,
   );
 
