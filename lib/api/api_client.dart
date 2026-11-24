@@ -81,7 +81,7 @@ abstract class ApiClient {
     @Path("id") int Id,
   );
 
-  @POST('v1/games/{id}/join')
+  @POST('/v1/games/{id}/join')
   Future<JoinGameResponseModel> joinGame(
     @Header('Authorization') String bearerToken,
     @Path("id") int Id,

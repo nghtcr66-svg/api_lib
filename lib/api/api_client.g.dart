@@ -306,7 +306,7 @@ class _ApiClient implements ApiClient {
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'v1/games/${Id}/join',
+            '/v1/games/${Id}/join',
             queryParameters: queryParameters,
             data: _data,
           )
