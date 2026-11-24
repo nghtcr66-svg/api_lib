@@ -22,7 +22,9 @@ class InfoModel {
     fullName: json['full_name'] as String?,
     username: json['username'] as String?,
     avatarUrl: json['avatar_url'] as String?,
-    categories: json['categories'] as List<String>?,
+    categories: (json['categories'] as List<dynamic>?)
+      ?.map((e) => e.toString())
+      .toList(),
     earnedPoints: json['earned_points'] as int?,
   );
 
