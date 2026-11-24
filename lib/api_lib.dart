@@ -54,7 +54,13 @@ Future<dynamic> post_func() async {
   }
 }
 
-Future<dynamic> register_func() async {
+Future<dynamic> register_func(
+  String email,
+  String full_name,
+  String password,
+  String phone,
+  String useername
+) async {
   final dio = Dio();
   // Эта одна строчка напечатает в консоль весь запрос, заголовки и ответ сервера!
   dio.interceptors.add(LogInterceptor(requestBody: true, responseBody: true));
@@ -66,11 +72,11 @@ Future<dynamic> register_func() async {
     final response = await api.registerME(
       'Bearer $token',
       RegisterRequestModel(
-        email: "test@test.ru",
-        fullName: "test",
-        password: "12345678",
-        phone: "+71111111111",
-        username: "test",
+        email: email,
+        fullName: full_name,
+        password: password,
+        phone: phone,
+        username: useername,
       ),
     );
     print('Успех: $response');
