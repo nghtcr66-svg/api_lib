@@ -2,6 +2,8 @@ import 'package:api_lib/models/game_details_model/game_details_model.dart';
 import 'package:api_lib/models/game_puzzle_model/game_puzzle_model.dart';
 import 'package:api_lib/models/heart_beat_game_model/heart_beat_game_model.dart';
 import 'package:api_lib/models/info_model.dart';
+import 'package:api_lib/models/join_game_request_model.dart';
+import 'package:api_lib/models/join_game_response_model/join_game_response_model.dart';
 import 'package:api_lib/models/my_statistic_model/my_statistic_model.dart';
 import 'package:api_lib/models/publish_game_request_model.dart';
 import 'package:api_lib/models/publish_game_response_model/publish_game_response_model.dart';
@@ -46,15 +48,12 @@ abstract class ApiClient {
     @Path("id") int userId,
   );
 
-
   @GET('/v1/games/{id}/puzzle')
   //мы прямо в сам запрос передем токен
   Future<GamePuzzleModel> getGamePuzzle(
     @Header('Authorization') String bearerToken,
     @Path("id") int userId,
   );
-
-
 
 
   //------------------------POST-------------------------------
@@ -70,7 +69,6 @@ abstract class ApiClient {
     @Body() RegisterRequestModel body, // <--  посылка с данными
   );
 
-
   @POST('/v1/games/{id}/heartbeat')
   Future<HeartBeatGameModel> heartbeatGame(
     @Header('Authorization') String bearerToken,
@@ -82,4 +80,14 @@ abstract class ApiClient {
     @Header('Authorization') String bearerToken,
     @Path("id") int Id,
   );
+
+  @POST('v1/games/{id}/join')
+  Future<JoinGameResponseModel> joinGame(
+    @Header('Authorization') String bearerToken,
+    @Path("id") int Id,
+    @Body() JoinGameRequestModel body,
+  );
+
+
+
 }

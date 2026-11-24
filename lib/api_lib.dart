@@ -1,4 +1,5 @@
 import 'package:api_lib/api/api_client.dart';
+import 'package:api_lib/models/join_game_request_model.dart';
 import 'package:api_lib/models/publish_game_request_model.dart';
 import 'package:api_lib/models/register_request_model.dart';
 import 'package:dio/dio.dart';
@@ -59,7 +60,7 @@ Future<dynamic> register_func(
   String full_name,
   String password,
   String phone,
-  String useername
+  String useername,
 ) async {
   final dio = Dio();
   // Эта одна строчка напечатает в консоль весь запрос, заголовки и ответ сервера!
@@ -103,9 +104,6 @@ Future<dynamic> getInfo_func() async {
   }
 }
 
-
-
-
 Future<dynamic> heartbeat_func() async {
   final dio = Dio();
   // Эта одна строчка напечатает в консоль весь запрос, заголовки и ответ сервера!
@@ -133,6 +131,38 @@ Future<dynamic> publishgame_func() async {
     const token = 'y79RLpsBDEgwgqUJtawimBWloyhZoOqt6rQF1ZRW8fE';
 
     final response = await api.submitGame('Bearer $token', 1);
+    print('Успех: $response');
+    return response;
+  } catch (e) {
+    print('Ошибка: $e');
+  }
+}
+
+
+
+
+
+
+
+
+Future<dynamic> joingame_func(
+  bool remnder_enabled
+) async {
+  final dio = Dio();
+  // Эта одна строчка напечатает в консоль весь запрос, заголовки и ответ сервера!
+  dio.interceptors.add(LogInterceptor(requestBody: true, responseBody: true));
+
+  try {
+    final api = ApiClient(dio);
+    const token = 'y79RLpsBDEgwgqUJtawimBWloyhZoOqt6rQF1ZRW8fE';
+
+    final response = await api.joinGame(
+      'Bearer $token',
+       1,
+       JoinGameRequestModel(
+        reminderEnabled: remnder_enabled
+       )
+       );
     print('Успех: $response');
     return response;
   } catch (e) {
