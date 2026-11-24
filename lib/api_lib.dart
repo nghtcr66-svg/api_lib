@@ -14,6 +14,7 @@ void request_func() async {
 
     final response = await api.getMyStatistic('Bearer $token');
     print('Успех: $response');
+    return response
   } catch (e) {
     print('Ошибка: $e');
   }
@@ -47,6 +48,7 @@ void post_func() async {
       ),
     );
     print('Успех: $response');
+    return response
   } catch (e) {
     print('Ошибка: $e');
   }
@@ -72,6 +74,7 @@ void register_func() async {
       ),
     );
     print('Успех: $response');
+    return response
   } catch (e) {
     print('Ошибка: $e');
   }
@@ -88,6 +91,7 @@ void getInfo_func() async {
 
     final response = await api.getUserInfo('Bearer $token', 1);
     print('Успех: $response');
+    return response
   } catch (e) {
     print('Ошибка: $e');
   }
@@ -107,6 +111,7 @@ void heartbeat_func() async {
 
     final response = await api.heartbeatGame('Bearer $token', 1);
     print('Успех: $response');
+    return response
   } catch (e) {
     print('Ошибка: $e');
   }
@@ -123,6 +128,7 @@ void publishgame_func() async {
 
     final response = await api.submitGame('Bearer $token', 1);
     print('Успех: $response');
+    return response
   } catch (e) {
     print('Ошибка: $e');
   }
